@@ -2,7 +2,7 @@
   "name": "my-saree-story",
   "version": "1.0.0",
   "type": "module",
-  "scripts": { "dev":"vite", "build":"npm build && vite build", "preview":"vite preview" },
+  "scripts": { "dev":"vite", "build":"npm install && vite build", "preview":"vite preview" },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
