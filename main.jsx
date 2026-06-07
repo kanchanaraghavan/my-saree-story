@@ -867,7 +867,7 @@ function MainApp({user,profile,onLogout,patchProfile,toast$,onShowScreen}){
         {tab==="profile"&&<ProfileScreen user={user} profile={profile} onLogout={onLogout} patchProf={patchProfile} shareUrl={window.location.origin+window.location.pathname+"?share="+(user?.id||"")} onBack={()=>setTab("collection")} setScreen={(s)=>{if(["privacy","terms","premium"].includes(s)){onShowScreen(s);}else{setTab(s);}}} setPrev={()=>{}} toast$={toast$}/>}
         {tab==="collection"&&<CollTab sarees={sarees} filtered={filtered} photoUrl={photoUrl} search={search} setSearch={setSearch} fFab={fFab} setFFab={setFFab} fCol={fCol} setFCol={setFCol} sortBy={sortBy} setSort={setSort} onAdd={()=>{setEdit("new");setTab("add");}} onView={setView}/>}
         {tab==="add"       &&<SareeForm key={editItem?.id||"new"} initial={editItem==="new"?null:editItem} userName={name} existingCount={sarees?.length||0} onSave={saveSaree} onCancel={()=>{setTab("collection");setEdit(null);}}/>}
-        {
+        
         {tab==="discover"  &&<DiscoverTab toast$={toast$}/>}
         {tab==="premium"   &&<PremiumTeaser onBack={()=>setTab("collection")}/>}
         {tab==="stores"    &&<StoresTab sarees={sarees||[]} userId={user?.id} toast$={toast$}/>}
