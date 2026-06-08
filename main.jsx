@@ -956,7 +956,7 @@ function SareeCard({saree:s,photoUrl,onClick}){
   return(
     <div onClick={onClick} className="crd" style={{background:"#fff",borderRadius:18,overflow:"hidden",border:"1px solid "+BORDR,boxShadow:"0 2px 14px rgba(107,16,48,.08)"}}>
       <div style={{height:108,position:"relative",overflow:"hidden"}}>
-        {photoUrl?<img src={photoUrl} alt="" style={{width:"100%",height:"100%",objectFit:"contain",background:"#FCF3EA"}}/>:
+        {photoUrl?<img src={photoUrl} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}}/>:
           <div style={{height:"100%",display:"flex"}}><div style={{flex:3,background:sw(s.primary_colour)}}/><div style={{flex:1,background:sw(s.secondary_colour)}}/></div>}
         {s.saree_id&&<div style={{position:"absolute",top:8,left:8,background:"rgba(107,16,48,.72)",color:"#FFE8D0",fontSize:9,fontWeight:700,padding:"3px 9px",borderRadius:99,fontFamily:"'Lato',sans-serif",letterSpacing:1.5}}>{s.saree_id}</div>}
         {!photoUrl&&<div style={{position:"absolute",bottom:6,right:6,background:"rgba(255,255,255,.85)",borderRadius:99,padding:"2px 8px",fontSize:9,color:MID,fontFamily:"'Lato',sans-serif"}}>tap to add photo</div>}
@@ -1040,7 +1040,7 @@ function SareeModal({saree:s,photoUrl,onClose,onEdit,onDelete,onPhoto}){
     <div onClick={onClose} style={{position:"fixed",inset:0,background:"rgba(26,5,16,.72)",zIndex:300,display:"flex",alignItems:"center",justifyContent:"center",padding:20,backdropFilter:"blur(6px)"}}>
       <div onClick={e=>e.stopPropagation()} className="fu" style={{background:BG,borderRadius:24,width:"100%",maxWidth:550,maxHeight:"92vh",overflow:"auto",boxShadow:"0 36px 84px rgba(107,16,48,.35)"}}>
         <div style={{height:175,borderRadius:"24px 24px 0 0",overflow:"hidden",position:"relative"}}>
-          {photoUrl?<img src={photoUrl} alt="" style={{width:"100%",height:"100%",objectFit:"contain",background:"#FCF3EA"}}/>:
+          {photoUrl?<img src={photoUrl} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}}/>:
             <div style={{height:"100%",display:"flex"}}><div style={{flex:3,background:sw(s.primary_colour)}}/><div style={{flex:1,background:sw(s.secondary_colour)}}/></div>}
           <button onClick={()=>fileRef.current.click()} style={{position:"absolute",bottom:12,right:12,background:"rgba(252,243,234,.94)",border:"1px solid "+BORDR,borderRadius:99,padding:"7px 16px",fontSize:12,cursor:"pointer",color:BURG,fontFamily:"'Lato',sans-serif",fontWeight:700}}>{"📷 "+(photoUrl?"Change photo":"Add photo")}</button>
           {s.saree_id&&<div style={{position:"absolute",top:12,left:12,background:"rgba(107,16,48,.75)",color:"#FFE8D0",fontSize:10,fontWeight:700,padding:"4px 12px",borderRadius:99,fontFamily:"'Lato',sans-serif",letterSpacing:2}}>{s.saree_id}</div>}
@@ -1094,7 +1094,7 @@ function AIStylist({sarees,photoUrl,occ,setOcc,sea,setSea,mood,setMood,onSuggest
           {result.map((pick,i)=>{const s=pick.saree;if(!s)return null;const b=wornBadge(daysSince(s.last_worn));const pu=photoUrl(s.photo_path);return(
             <div key={s.id} style={{background:"#fff",borderRadius:16,border:"1px solid "+BORDR,overflow:"hidden",display:"flex",marginBottom:13,boxShadow:"0 4px 18px rgba(107,16,48,.09)"}}>
               <div style={{width:108,flexShrink:0,cursor:"pointer",position:"relative"}} onClick={()=>onView(s)}>
-                {pu?<img src={pu} alt="" style={{width:"100%",height:"100%",objectFit:"contain",background:"#FCF3EA"}}/>:<div style={{height:"100%",display:"flex"}}><div style={{flex:3,background:sw(s.primary_colour)}}/><div style={{flex:1,background:sw(s.secondary_colour)}}/></div>}
+                {pu?<img src={pu} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<div style={{height:"100%",display:"flex"}}><div style={{flex:3,background:sw(s.primary_colour)}}/><div style={{flex:1,background:sw(s.secondary_colour)}}/></div>}
                 <div style={{position:"absolute",top:7,left:7,width:22,height:22,borderRadius:99,background:GOLD,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:700,color:"#fff",fontFamily:"'Lato',sans-serif"}}>{i+1}</div>
               </div>
               <div style={{padding:"14px 16px",flex:1}}>
